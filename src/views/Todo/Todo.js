@@ -6,7 +6,12 @@ class Todo extends React.Component {
         this.state = {todos:[1,2,3,4], done:[1,2,3,4]}
         this.handleDoneClick = this.handleDoneClick.bind(this)
         this.handleTodoClick = this.handleTodoClick.bind(this)
+        this.handleChange = this.handleChange.bind(this)
+        this.handleSubmit= this.handleSubmit.bind(this)
+    }
 
+    handleChange(event) {
+        this.setState({value: event.target.value});
     }
 
     renderDone() {
@@ -45,14 +50,28 @@ class Todo extends React.Component {
         }
         </div>)
     }
+
+    handleSubmit(event) {
+        const value = this.state.value
+        this.setState({
+            todos: [...this.state.todos, value],
+            value: ''
+        })
+        event.preventDefault();
+      }
+
     render() {
         return (<div>
-            <div>Todo</div>
+            <form onSubmit={this.handleSubmit}>
+                <input type="text" value={this.state.value} onChange={this.handleChange} />
+                <input type="submit" value="Add Todo" />
+            </form>
             <br/>
+            <div>Todos:</div>
             {this.renderTodo()}
             <br/>
-            <div>Done</div>
             <br/>
+            <div>Done:</div>
             {this.renderDone()}
 
             </div>)
