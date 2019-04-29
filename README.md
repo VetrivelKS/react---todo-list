@@ -1,1 +1,1 @@
-# practice repo:  simple todo list maintainer using react boilerplates
+# practice repo:  simple todo list maintainer using react boilerplate
