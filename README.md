@@ -1,1 +1,1 @@
-# practice repo:  replicating calculator functionalities using react boilerplates
+# practice repo:  simple todo list maintainer using react boilerplates
